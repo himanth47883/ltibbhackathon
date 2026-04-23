@@ -1,0 +1,16 @@
+---
+version: "3.8"
+services:
+  bloodbank-db:
+    container_name: mysqldb
+    image: himanthdevops/bloodbank:db-image
+    ports:
+      - "3306:3306"
+
+  bloodbank-app:
+    container_name: appcont
+    image: himanthdevops/bloodbank:app-image
+    ports:
+      - "1111:80"
+    depends_on:
+      - bloodbank-db
